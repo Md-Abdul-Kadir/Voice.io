@@ -30,7 +30,7 @@ export default function Changevoice() {
       </div>
 
       <div>
-        <h1 className="py-5 border-bottom">Change the Voice Online Effortlessly</h1>
+        <h1 className="py-5 border-bottom marginT">Change the Voice Online Effortlessly</h1>
       </div>
       <div className="container w-100 py-md-5 d-flex">
         <div className="w-50 my-auto">

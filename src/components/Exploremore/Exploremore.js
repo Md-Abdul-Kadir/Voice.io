@@ -2,10 +2,11 @@ import React from "react";
 import card5 from '../../img/cards/card5.avif'
 import card6 from '../../img/cards/card6.avif'
 import card7 from '../../img/cards/card7.avif'
+import './Exploremore.css'
 
 export default function Exploremore() {
   return (
-    <div className="my-5">
+    <div className="my-5 ">
         <h1 className="mt-5">Explore More Resources</h1>
         
       <div  className="container my-5"> 
