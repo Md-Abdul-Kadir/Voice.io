@@ -35,7 +35,7 @@ export default function Exploremore() {
             <div class="card h-100">
               <img src={card7} class="card-img-top" alt="..." />
               <div class="card-body">
-                <h5 class="card-title fs-4 fw-bold my-3">Free DJ Voice Maker Online</h5>
+                <h5 class="card-title fs-4 fw-bold my-3">Free Voice Maker Online</h5>
                 <p class="card-text my-5 px-3">
                   This post tells you how to create a DJ voice with ease in 3 different ways.
                 </p>

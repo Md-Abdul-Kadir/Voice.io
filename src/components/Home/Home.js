@@ -9,11 +9,11 @@ export default function Home()
 {
   return (
     <div>
-     <Navigation></Navigation>
+    
      <Hero></Hero>
      <Changevoice></Changevoice>
      <Exploremore></Exploremore>
-     <Footer></Footer>
+     
     </div>
   )
 }
