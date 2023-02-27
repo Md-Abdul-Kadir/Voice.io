@@ -31,6 +31,7 @@ export default function SignUp() {
     createUserWithEmailAndPassword(auth, email, pass)
       .then((user) => {
         setUser(user.user);
+        localStorage.setItem("user", user.user);
       })
       .catch((error) => {
         console.log(error);
@@ -51,8 +52,19 @@ export default function SignUp() {
   //   });
 
   return (
-    <div>
-      <div class="container-login100 bg">
+    <div className="">
+      
+      <div class="container-login100 bg flex-col">
+      {(user || googlelog) && (
+          <h3 className="my-5 text-light">
+            <span className="fw-bold">Congratulation</span> !! Your signup is
+            done.
+            <p>Please login in <a href="/login" className="px-2 py-2 w- rounded-pill">
+                <button className="btn btn-info px-3 py-1 text-light">Now</button>
+                </a> </p>
+          </h3>
+        )}
+     
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
           <img className="mb-5" src={logo} alt="" width="100px" />
           <form class="login100-form validate-form">
@@ -78,15 +90,15 @@ export default function SignUp() {
               data-validate="email is reauired"
             >
               <span class="text-start">Enter email</span>
-			  <div className="d-flex">
+              <div className="d-flex">
                 <MarkEmailReadIcon className="my-auto" />
-              <input
-                onChange={handleEmailchange}
-                class="input100 px-2"
-                type="email"
-                name="username"
-                placeholder="Enter your email"
-              />
+                <input
+                  onChange={handleEmailchange}
+                  class="input100 px-2"
+                  type="email"
+                  name="username"
+                  placeholder="Enter your email"
+                />
               </div>
             </div>
 
@@ -95,16 +107,16 @@ export default function SignUp() {
               data-validate="Password is required"
             >
               <span class="">Password</span>
-			  <div className="d-flex">
+              <div className="d-flex">
                 <LockIcon className="my-auto" />
-              <input
-                onChange={handlePassChange}
-                class="input100 px-2"
-                type="password"
-                name="pass"
-                placeholder="Enter your password"
-              />
-             </div>
+                <input
+                  onChange={handlePassChange}
+                  class="input100 px-2"
+                  type="password"
+                  name="pass"
+                  placeholder="Enter your password"
+                />
+              </div>
             </div>
 
             <div class="container-login100-form-btn">
@@ -126,10 +138,10 @@ export default function SignUp() {
               </button>
             </div>
 
-            <div class="d-flex p-t-155">
+            <div class="d-flex py-5">
               <p className="mx-auto">
                 Already Sign Up?
-                <a href="/login" className="px-2 py-2 w- rounded-pill">
+                <a href="/login" className="px-2 py-2 w- rounded-pill text-decoration-none">
                   Log In
                 </a>
               </p>

@@ -28,19 +28,22 @@ export default function Login() {
     //console.log(pass);
 
     signInWithEmailAndPassword(auth, email, pass)
-      .then((user) => {
-        setUser(user.user);
+      .then((data) => {
+        setUser(data.user);
+        localStorage.setItem("email", data.user.email);
+        localStorage.setItem("user", data.user);
       })
       .catch((error) => {
         console.log(error);
       });
-
+      
     e.preventDefault();
   };
   const handleGoogleLogin = (e) => {
     signInWithPopup(auth, provider).then((data) => {
       setGooglelog(data.user.email);
       localStorage.setItem("email", data.user.email);
+      
     });
     e.preventDefault();
   };
@@ -55,23 +58,26 @@ export default function Login() {
   };
   return (
     <div>
-      <div class="container-login100 bg flex-col">
+      <div className="container-login100 bg flex-col">
         {(user || googlelog) && (
-          <h3 className="my-5 text-light">
+          <h3 className="my-3 text-light">
             <span className="fw-bold">Congratulation</span> !! Your login is
             done.
+            <p className="mt-2"><a href="/home" className="px-2 py-2 w- rounded-pill">
+                <button className="btn btn-info px-3 py-1 text-light">Home</button>
+                </a> </p>
           </h3>
         )}
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
           <img className="mb-5" src={logo} alt="" width="100px" />
-          <form class="login100-form validate-form">
-            <span class="fw-bold pb-5 fs-1 ">Login</span>
+          <form className="login100-form validate-form">
+            <span className="fw-bold pb-5 fs-1 ">Login</span>
 
             <div
               className=" wrap-input100 validate-input m-b-23 text-start"
               data-validate="Email is reauired"
             >
-              <span class="text-start">Enter email</span>
+              <span className="text-start">Enter email</span>
               <div className="d-flex">
                 <MarkEmailReadIcon className="my-auto" />
                 <input
@@ -85,15 +91,15 @@ export default function Login() {
             </div>
 
             <div
-              class="wrap-input100 validate-input text-start"
+              className="wrap-input100 validate-input text-start"
               data-validate="Password is required"
             >
-              <span class="">Password</span>
+              <span className="">Password</span>
               <div className="d-flex">
                 <LockIcon className="my-auto"/>
                 <input
                   onChange={handlePassChange}
-                  class="input100 px-2"
+                  className="input100 px-2"
                   type="password"
                   name="pass"
                   placeholder="Type your password"
@@ -101,22 +107,18 @@ export default function Login() {
               </div>
             </div>
 
-            <div class="text-right p-t-8 p-b-31">
-              <a href="#home">Forgot password?</a>
-            </div>
-
-            <div class="container-login100-form-btn">
-              <div class="wrap-login100-form-btn">
-                <div class="login100-form-bgbtn"></div>
+            <div className="container-login100-form-btn mt-3">
+              <div className="wrap-login100-form-btn">
+                <div className="login100-form-bgbtn"></div>
                 <button onClick={handleLogin} className="login100-form-btn">
                   Login
                 </button>
               </div>
             </div>
 
-            <div class="text-dark my-3 text-center "></div>
+            <div className="text-dark my-3 text-center "></div>
 
-            <div class="flex-c-m">
+            <div className="flex-c-m">
               <button
                 onClick={handleGoogleLogin}
                 type=""
@@ -126,11 +128,11 @@ export default function Login() {
               </button>
             </div>
 
-            <div class="d-flex mt-5 mb-1">
+            <div className="d-flex mt-5 mb-1">
               <p className="text-center mx-auto">
                 <span class="">Are you new to voice-io</span>
 
-                <a href="/signup" className="px-1 ">
+                <a href="/signup" className="px-1 text-decoration-none">
                   Sign Up
                 </a>
               </p>
