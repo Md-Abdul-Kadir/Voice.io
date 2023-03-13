@@ -67,7 +67,7 @@ export default function Profile() {
                                                 <p className='ms-auto'>:</p>
                                             </div>
                                             <div className="col-md-3">
-                                                <p>Kshiti123</p>
+                                                <p>{localStorage.getItem("userName")}</p>
                                                 
                                             </div>
                                         </div>
@@ -77,7 +77,7 @@ export default function Profile() {
                                                 <p className='ms-auto'>:</p>
                                             </div>
                                             <div className="col-md-3">
-                                                <p>Kshiti Ghelani</p>
+                                            <p>{localStorage.getItem("userName")}</p>
                                             </div>
                                         </div>
                                         <div className="row">
@@ -87,7 +87,7 @@ export default function Profile() {
 
                                             </div>
                                             <div className="col-md-3">
-                                                <p>kshitighelani@gmail.com</p>
+                                            <p>{localStorage.getItem("email")}</p>
                                             </div>
                                         </div>
                                         <div className="row">

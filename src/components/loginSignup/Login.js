@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./css/util.css";
 import "./css/main.css";
 import logo from "../../img/ll.png";
@@ -32,6 +32,7 @@ export default function Login() {
         setUser(data.user);
         localStorage.setItem("email", data.user.email);
         localStorage.setItem("user", data.user);
+        window.location.reload()
       })
       .catch((error) => {
         console.log(error);
@@ -43,7 +44,7 @@ export default function Login() {
     signInWithPopup(auth, provider).then((data) => {
       setGooglelog(data.user.email);
       localStorage.setItem("email", data.user.email);
-      
+      window.location.reload();
     });
     e.preventDefault();
   };

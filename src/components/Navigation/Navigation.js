@@ -2,13 +2,16 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import "./Navigation.css";
 import logo from "../../img/ll.png";
-import user from "../../img/user.png";
+import usericon from "../../img/user.png";
 
 export default function Navigation() {
   const Logout = () => {
     localStorage.clear();
     window.location.reload();
+    console.log(localStorage);
+
   };
+  console.log(localStorage);
   return (
     <div className="bg-theme  d-flex ">
       <Nav className="container my-auto" activeKey="/home">
@@ -58,8 +61,8 @@ export default function Navigation() {
           <div className="d-flex ms-auto">  
             <Nav.Item className="ms-auto d-flex">
               <Nav.Link href="/profile" className="text-light my-auto">
-                <div className="bg-info p-2 rounded-circle">
-                  <img classname="my-auto" width={'25px'} src={user} alt="this is an icon" />
+                <div className="bg-dark p-2 rounded-circle">
+                  <img classname="my-auto" width={'25px'} src={usericon} alt="this is an icon" />
                 </div>
               </Nav.Link>
             </Nav.Item>

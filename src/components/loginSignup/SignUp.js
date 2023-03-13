@@ -14,7 +14,15 @@ export default function SignUp() {
 
   const [email, setemail] = useState("");
   const [pass, setpass] = useState("");
+  const [userName,serUseName]=useState("");
+  
 
+  const handleusername=(e)=>{
+    serUseName(e.target.value);
+
+    e.preventDefault();
+    
+  }
   const handleEmailchange = (e) => {
     setemail(e.target.value);
     // console.log(email);
@@ -31,7 +39,8 @@ export default function SignUp() {
     createUserWithEmailAndPassword(auth, email, pass)
       .then((user) => {
         setUser(user.user);
-        localStorage.setItem("user", user.user);
+        localStorage.setItem("email", user.user.email);
+        localStorage.setItem("userName", userName);
       })
       .catch((error) => {
         console.log(error);
@@ -81,6 +90,7 @@ export default function SignUp() {
                   class="input100 px-2"
                   type="text"
                   name="username"
+                  onClick={handleusername}
                   placeholder="Enter your username"
                 />
               </div>
@@ -96,7 +106,7 @@ export default function SignUp() {
                   onChange={handleEmailchange}
                   class="input100 px-2"
                   type="email"
-                  name="username"
+                  name="email"
                   placeholder="Enter your email"
                 />
               </div>
